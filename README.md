@@ -79,15 +79,28 @@ Notice that bits 62 and 63 will not be needed. What this means is that if given 
 
 Bit 0 of `checkBitsA_z` is on the right in the above depiction, and got set to 1 for the A in the input string. Bit 63 of `checkBitsA_z` is on the left (not used, so will always stay 0).
 
-|||important 
-Any `char` variable, such as the one called `nextChar` in the code, can be treated like an integral number and used in mathematical expressions in C using + or -. Thus, you can easily determine the index into a bit vector for each character you encounter by doing math on the character. You need to determine what the expression is to compute the number of the bit in the vector.
+#### Important
+> Any `char` variable, such as the one called `nextChar` in the code, can be
+> treated like an integral number and used in mathematical expressions in C
+> using + or -. Thus, you can easily determine the index into a bit vector for
+> each character you encounter by doing math on the character. You need to
+> determine what the expression is to compute the number of the bit in the
+> vector.
 
-Next think about how you can place a one in that position of a temporary variable, which can be used as a mask.
-|||
+> Next think about how you can place a one in that position of a temporary
+> variable, which can be used as a mask.
 
-So for any of the ascii characters whose numeric value is between 65 and 126 inclusive, the bit vector `checkBitsA_z` can be used to mark whether a character has been seen already. The function can loop through each character in the input string (this loop is given to you in the code) and stop early and return false whenever a bit for a particular character is already set. If it is not, then it should be set. If the loop never stops early, then all the characters were unique. However, this also must be done for the other possible ascii characters:
+So for any of the ascii characters whose numeric value is between 65 and 126
+inclusive, the bit vector `checkBitsA_z` can be used to mark whether a character
+has been seen already. The function can loop through each character in the input
+string (this loop is given to you in the code) and stop early and return false
+whenever a bit for a particular character is already set. If it is not, then it
+should be set. If the loop never stops early, then all the characters were
+unique. However, this also must be done for the other possible ascii characters:
 
-The other bit vector, `checkBitsexcl_amp`, can be used for the characters whose decimal values range from 33 to 64. (More bits of this vector will remain unused- 32 through 63).
+The other bit vector, `checkBitsexcl_amp`, can be used for the characters whose
+decimal values range from 33 to 64. (More bits of this vector will remain
+unused- 32 through 63).
 
 |index of bit in checkBitsexcl_amp | ascii char | char value|
 |-----------------------------|------------|-----------|
@@ -96,7 +109,8 @@ The other bit vector, `checkBitsexcl_amp`, can be used for the characters whose 
 |...|...|...|
 |31| @ | 64 |
 
-You can use this vector for checking and marking for any characters whose value is between 33 and 64, inclusive.
+You can use this vector for checking and marking for any characters whose value
+is between 33 and 64, inclusive.
 
 #### Rules for the function hasUniqueChars
 
@@ -115,7 +129,10 @@ variables, such as +, -, \*, <, >.
 
 ### Complete the test.c file
 
-Complete enough tests to fully check your hasUniqueChars function. This means **complete and exhaustive** testing, using examples that should return true, those that should return false, and those that should fail and exit the program. Use asserts for each test.
+Complete enough tests to fully check your hasUniqueChars function. This means
+**complete and exhaustive** testing, using examples that should return true,
+those that should return false, and those that should fail and exit the program.
+Use asserts for each test.
 
 ## How you will be graded
 
@@ -134,9 +151,13 @@ Your code should:
 
 ### Declaring and creating strings
 
-These examples are taken from [this C tutorial site](http://www.crasseux.com/books/ctutorial/Initializing-strings.html), with some additional comments and bug fixes- beware that not all examples online are correct!
+These examples are taken from [this C tutorial
+site](http://www.crasseux.com/books/ctutorial/Initializing-strings.html), with
+some additional comments and bug fixes- beware that not all examples online are
+correct!
 
-There are three examples of how to declare and initialize strings in C given in the main() of text.c. They are:
+There are three examples of how to declare and initialize strings in C given in
+the main() of text.c. They are:
 
 ```
   /* Example 1 */
@@ -163,16 +184,27 @@ What follows are an explanation of each one.
   char string1[] = "A string declared as an array.\n";
 ```
 
-This is often the best way to declare and initialize a string that should keep a constant value and not change. The character array is declared explicitly. There is no size declaration for the array; just enough memory is allocated for the string, because the compiler knows how long the string constant is. The compiler stores the string constant in the character array and adds a null character (\0) to the end. This works well if you don't intend to change the string and wish to treat it as a constant.
+This is often the best way to declare and initialize a string that should keep a
+constant value and not change. The character array is declared explicitly. There
+is no size declaration for the array; just enough memory is allocated for the
+string, because the compiler knows how long the string constant is. The compiler
+stores the string constant in the character array and adds a null character (\0)
+to the end. This works well if you don't intend to change the string and wish to
+treat it as a constant.
 
 ```
   /* Example 2 */
   char *string2 = "A string declared as a pointer.\n";
 ```
 
-The second of these initializations is a pointer to an array of characters. Just as in the first example, the compiler calculates the size of the array from the string constant and adds a null character. The compiler then assigns a pointer to the first character of the character array to the variable string2.
+The second of these initializations is a pointer to an array of characters. Just
+as in the first example, the compiler calculates the size of the array from the
+string constant and adds a null character. The compiler then assigns a pointer
+to the first character of the character array to the variable string2.
 
-Note: Most string functions will accept strings declared in either of these two ways. Consider the printf statements at the end of the example program above -- the statements to print the variables string1 and string2 are identical.
+Note: Most string functions will accept strings declared in either of these two
+ways. Consider the printf statements at the end of the example program above --
+the statements to print the variables string1 and string2 are identical.
 
 ```
   /* Example 3 */
@@ -180,11 +212,21 @@ Note: Most string functions will accept strings declared in either of these two 
   strcpy(string3, "A string constant copied in.\n");
 ```
   
-Declaring a string in this way is useful when you don't know what the string variable will contain, but have a general idea of the length of its contents (in this case, the string can be a maximum of 128 characters long). The drawback is that you will either have to use some kind of string function to assign the variable a value, as the next line of code does ( strcpy(string3, "A string constant copied in.\n");), or you will have to assign the elements of the array the hard way, character by character. (See string.h library functions for more information on the function strcpy.)
+Declaring a string in this way is useful when you don't know what the string
+variable will contain, but have a general idea of the length of its contents (in
+this case, the string can be a maximum of 128 characters long). The drawback is
+that you will either have to use some kind of string function to assign the
+variable a value, as the next line of code does (strcpy(string3, "A string
+constant copied in.\n");), or you will have to assign the elements of the array
+the hard way, character by character. (See string.h library functions for more
+information on the function strcpy.)
 
 ### Escape sequences
 
-Some special ascii non-printing characters need to be represented in a character string using what is called an *escape sequence*. Please read about this on the [Wikipedia page](https://en.wikipedia.org/wiki/Escape_sequences_in_C) devoted to describing them. 
+Some special ascii non-printing characters need to be represented in a character
+string using what is called an *escape sequence*. Please read about this on the
+[Wikipedia page](https://en.wikipedia.org/wiki/Escape_sequences_in_C) devoted to
+describing them. 
 
 
 
