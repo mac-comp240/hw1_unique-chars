@@ -96,13 +96,13 @@ checks every character in the string. These variables are:
 The idea behind a solution that can work with all non-printing characters and
 uses only these two additional unsigned long variables is as follows:
 
-In your codio linux virtual machine instance, gcc compiles and stores variables
-declared as `unsigned long` using 8 bytes, or 64 bits in the default 64-bit
-Intel instruction set. You can each of the 64 bits of an unsigned long as
-indicators of whether a certain character has been seen yet in a string. We can
-think of `checkBitsA_z` as a bit vector, where we set a 1 in a position if a
-character has been encountered in a string. The mapping of ascii characters to
-poistions in this bit vector `checkBitsA_z` can be like this:
+Your compiler, gcc, compiles and stores variables declared as `unsigned long`
+using 8 bytes, or 64 bits in the default 64-bit Intel instruction set. You can
+use each of the 64 bits of an unsigned long as indicators of whether a certain
+character has been seen yet in a string. We can think of `checkBitsA_z` as a bit
+vector, where we set a 1 in a position if a character has been encountered in a
+string. The mapping of ascii characters to poistions in this bit vector
+`checkBitsA_z` can be like this:
 
 |index of bit in checkBitsA_z | ascii char | char value|
 |-----------------------------|------------|-----------|
@@ -191,8 +191,8 @@ Your code should:
 - have all debug statements removed or commented
   This means the only output should be from the error conditions, like this:
   
-    codio@... ~/workspace$ ./hasUniqueChars
-    invalid character in string
+	$ ./hasUniqueChars
+	invalid character in string
 
 ## Some notes
 
