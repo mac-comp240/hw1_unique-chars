@@ -276,9 +276,3 @@ Some special ascii non-printing characters need to be represented in a character
 string using what is called an *escape sequence*. Please read about this on the
 [Wikipedia page](https://en.wikipedia.org/wiki/Escape_sequences_in_C) devoted to
 describing them. 
-
-
-
-
-
-
