@@ -2,8 +2,7 @@
 
 This is a classic problem that has been posed many times (including for the dreaded coding interview by employers). The problem is this:
 
-> Given a string of characters, which are encoded in ascii, determine if the
-> string contains all unique characters.
+#### Given a string of characters, which are encoded in ascii, determine if the string contains all unique characters.
 
 
 There are many solutions in various languages, some of which are straightforward, but at the same time may be inefficient. Others may perform fairly well, but are rather incomplete (they don't cover all ascii characters that are easy to check). Perhaps the most vexing issue with many proposed solutions is that they do not handle cases when a string contains characters it does not expect. The web is filled with examples that are too simple and not exhaustive. Writing and using code like this has consequences. **Your goal** is to use what you learn about how ascii characters are encoded as bits, and therefor numbers. The problem can be solved using the numerical representation of all possible characters and some special unsigned long integers that you treat as 'bit vectors' (described further below).
@@ -80,15 +79,15 @@ Notice that bits 62 and 63 will not be needed. What this means is that if given 
 Bit 0 of `checkBitsA_z` is on the right in the above depiction, and got set to 1 for the A in the input string. Bit 63 of `checkBitsA_z` is on the left (not used, so will always stay 0).
 
 #### Important
-> Any `char` variable, such as the one called `nextChar` in the code, can be
-> treated like an integral number and used in mathematical expressions in C
-> using + or -. Thus, you can easily determine the index into a bit vector for
-> each character you encounter by doing math on the character. You need to
-> determine what the expression is to compute the number of the bit in the
-> vector.
+Any `char` variable, such as the one called `nextChar` in the code, can be
+treated like an integral number and used in mathematical expressions in C
+using + or -. Thus, you can easily determine the index into a bit vector for
+each character you encounter by doing math on the character. You need to
+determine what the expression is to compute the number of the bit in the
+vector.
 
-> Next think about how you can place a one in that position of a temporary
-> variable, which can be used as a mask.
+Next think about how you can place a one in that position of a temporary
+variable, which can be used as a mask.
 
 So for any of the ascii characters whose numeric value is between 65 and 126
 inclusive, the bit vector `checkBitsA_z` can be used to mark whether a character
