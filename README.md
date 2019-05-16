@@ -7,23 +7,47 @@ This is a classic problem that has been posed many times (including for the drea
 
 There are many solutions in various languages, some of which are straightforward, but at the same time may be inefficient. Others may perform fairly well, but are rather incomplete (they don't cover all ascii characters that are easy to check). Perhaps the most vexing issue with many proposed solutions is that they do not handle cases when a string contains characters it does not expect. The web is filled with examples that are too simple and not exhaustive. Writing and using code like this has consequences. **Your goal** is to use what you learn about how ascii characters are encoded as bits, and therefor numbers. The problem can be solved using the numerical representation of all possible characters and some special unsigned long integers that you treat as 'bit vectors' (described further below).
 
-The 128 fundamental ascii characters are found in the file provided called [ascii_table.txt](open_file ascii_table.txt) (click to open it.) This is purely a reference and is not designed to be part of your code solution.
+The 128 fundamental ascii characters are found in the file provided called
+`ascii_table.txt`. This is purely a reference and is not designed to be part of
+your code solution.
 
 
 
 ## Starter code you are given
 
-For this problem, you already have a `Makefile` that you can use to build your code as you work. The executable, called **hasUniqueChars**, is created by the gcc compiler from 3 C code files.
+For this problem, you already have a `Makefile` that you can use to build your
+code as you work. The executable, called **hasUniqueChars**, is created by the
+gcc compiler from 3 C code files.
 
-1. The [binary_convert.c](open_file binary_convert.c) file and its binary_convert.h file are just as you had used in the Data Activities. As you have seen, it has functions that you can use to help you debug your code. You should not need to change this file. You should study it, however (some code is like what you will need to do).
+1. The `binary_convert.c`file and its binary_convert.h file are just as you had
+used in the Data Activities. As you have seen, it has functions that you can use
+to help you debug your code. You should not need to change this file. You should
+study it, however (some code is like what you will need to do).
 
-2. The file where you should create the necessary function that will determine whether a given string has unique characters in it or not is called [hasUniqueChars.c](open_file hasUniqueChars.c). The name of the function you will complete is also called *hasUniqueChars*. Note that you are also required to document this function by replacing the comment immediately above it in the code file.
+2. The file where you should create the necessary function that will determine
+whether a given string has unique characters in it or not is called
+`hasUniqueChars.c`. The name of the function you will complete is also called
+*hasUniqueChars*. Note that you are also required to document this function by
+replacing the comment immediately above it in the code file.
 
-    - In the code given to you in `hasUniqueChars.c`, the function declared as  `void checkInvalid(char * inputStr)` is designed to fail and exit if it finds a non-printing character, which are listed in the first, or left column of the four columns of characters listed in ascii_table.txt. See the Notes below for more information about how some of these characters can be added to C strings by 'escaping' them using an *escape sequence*. This will enable you to test whether *hasUniqueChars* will fail on a string containing non-printing characters.
+    - In the code given to you in `hasUniqueChars.c`, the function declared as
+      `void checkInvalid(char * inputStr)` is designed to fail and exit if it
+      finds a non-printing character, which are listed in the first, or left
+      column of the four columns of characters listed in ascii_table.txt. See
+      the Notes below for more information about how some of these characters
+      can be added to C strings by 'escaping' them using an *escape sequence*.
+      This will enable you to test whether *hasUniqueChars* will fail on a
+      string containing non-printing characters.
 
-3. The file that will contain all your exhaustive tests of your *hasUniqueChars* function is [test.c](open_file test.c). A few very basic tests are provided, but you must be much more careful and exhaustive, adding enough tests to be certain your function works for *all cases of character that you can create in a string*. Document this file at the top with a description and your name, and make sure that you describe your tests.
+3. The file that will contain all your exhaustive tests of your *hasUniqueChars*
+function is `test.c`. A few very basic tests are provided, but you must be much
+more careful and exhaustive, adding enough tests to be certain your function
+works for *all cases of character that you can create in a string*. Document
+this file at the top with a description and your name, and make sure that you
+describe your tests.
 
-    - Until you have a correct version of *hasUniqueChars*, the initial code that builds will fail on one of the asserts.
+    - Until you have a correct version of *hasUniqueChars*, the initial code
+      that builds will fail on one of the asserts.
 
 4. The Makefile is given for you.
 
@@ -47,21 +71,38 @@ bool hasUniqueChars(char * inputStr)
 
 This function should do the following:
 
-- Take any length of input string (variable inputStr), provided as an array of chars. The characters in the array could be 'non printing', which are aded to a string using an 'escape' character sequence (you will need to lookup and investigate this- there is one reference at the bottom of this page).
-- Fail and exit the program if a non-printing character, including DEL (ascii value 127) is in the string, regardless of the other characters.
-- Return a `bool` (find documentation on the C library stdbool.h) value of true if every character, ignoring spaces, only occurs once in the input string.
-- The space character is the only ascii character that can be repeated in the input string and still result in hasUniqueChars returning true.
+- Take any length of input string (variable inputStr), provided as an array of
+  chars. The characters in the array could be 'non printing', which are aded to
+  a string using an 'escape' character sequence (you will need to lookup and
+  investigate this- there is one reference at the bottom of this page).
+- Fail and exit the program if a non-printing character, including DEL (ascii
+  value 127) is in the string, regardless of the other characters.
+- Return a `bool` (find documentation on the C library stdbool.h) value of true
+  if every character, ignoring spaces, only occurs once in the input string.
+- The space character is the only ascii character that can be repeated in the
+  input string and still result in hasUniqueChars returning true.
 
-You should implement this function by using what you know about the integer representation used for each ascii character. The code that you are given in [hasUniqueChars.c](open_file hasUniqueChars.c) contains two variables that form the key for completing a solution that needs only bitwaise operators inside of the main for loop that checks every character in the string. These variables are:
+You should implement this function by using what you know about the integer
+representation used for each ascii character. The code that you are given in
+`hasUniqueChars.c` contains two variables that form the key for completing a
+solution that needs only bitwaise operators inside of the main for loop that
+checks every character in the string. These variables are:
 
 ```
   unsigned long checkBitsA_z = 0;   // for checking A through z and {|}~
   unsigned long checkBitsexcl_amp =0;  // for checking ! though @ 
 ```
 
-The idea behind a solution that can work with all non-printing characters and uses only these two additional unsigned long variables is as follows:
+The idea behind a solution that can work with all non-printing characters and
+uses only these two additional unsigned long variables is as follows:
 
-In your codio linux virtual machine instance, gcc compiles and stores variables declared as `unsigned long` using 8 bytes, or 64 bits in the default 64-bit Intel instruction set. You can each of the 64 bits of an unsigned long as indicators of whether a certain character has been seen yet in a string. We can think of `checkBitsA_z` as a bit vector, where we set a 1 in a position if a character has been encountered in a string. The mapping of ascii characters to poistions in this bit vector `checkBitsA_z` can be like this:
+In your codio linux virtual machine instance, gcc compiles and stores variables
+declared as `unsigned long` using 8 bytes, or 64 bits in the default 64-bit
+Intel instruction set. You can each of the 64 bits of an unsigned long as
+indicators of whether a certain character has been seen yet in a string. We can
+think of `checkBitsA_z` as a bit vector, where we set a 1 in a position if a
+character has been encountered in a string. The mapping of ascii characters to
+poistions in this bit vector `checkBitsA_z` can be like this:
 
 |index of bit in checkBitsA_z | ascii char | char value|
 |-----------------------------|------------|-----------|
@@ -72,11 +113,16 @@ In your codio linux virtual machine instance, gcc compiles and stores variables 
 |...|...|...|
 |61 | ~ | 126 |
 
-Notice that bits 62 and 63 will not be needed. What this means is that if given an input string "AB}", then after checking each of the three characters, `checkBitsA_z` should look like this in binary (spaces have been added after every 4 bits for readability):
+Notice that bits 62 and 63 will not be needed. What this means is that if given
+an input string "AB}", then after checking each of the three characters,
+`checkBitsA_z` should look like this in binary (spaces have been added after
+every 4 bits for readability):
 
     0001 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0011
 
-Bit 0 of `checkBitsA_z` is on the right in the above depiction, and got set to 1 for the A in the input string. Bit 63 of `checkBitsA_z` is on the left (not used, so will always stay 0).
+Bit 0 of `checkBitsA_z` is on the right in the above depiction, and got set to 1
+for the A in the input string. Bit 63 of `checkBitsA_z` is on the left (not
+used, so will always stay 0).
 
 #### Important
 Any `char` variable, such as the one called `nextChar` in the code, can be
@@ -124,7 +170,9 @@ variables, such as +, -, \*, <, >.
 
 3. You may also use relational operators in if statements (!, &&, ||).
 
-4. You might be tempted to use any functions in the C library ctype.h, but this strategy will likely make your code more complicated. You should just treat nextChar as an integral value.
+4. You might be tempted to use any functions in the C library ctype.h, but this
+strategy will likely make your code more complicated. You should just treat
+nextChar as an integral value.
 
 ### Complete the test.c file
 
