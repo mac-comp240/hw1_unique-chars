@@ -85,7 +85,7 @@ This function should do the following:
 You should implement this function by using what you know about the integer
 representation used for each ascii character. The code that you are given in
 `hasUniqueChars.c` contains two variables that form the key for completing a
-solution that needs only bitwaise operators inside of the main for loop that
+solution that needs only bitwise operators inside of the main for loop that
 checks every character in the string. These variables are:
 
 ```
@@ -186,7 +186,7 @@ Use asserts for each test.
 Your code should:
 
 - use asserts for your tests
-- follow the coding guidelines found on the previous page of this unit
+- follow the coding guidelines found on the course moodle page
 - work correctly on exhaustive test cases you have created and described
 - have all debug statements removed or commented
   This means the only output should be from the error conditions, like this:
