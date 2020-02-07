@@ -1,16 +1,15 @@
-# The Problem
+# COMP 240 HW 1 Problem: Checking for no repeated characters in a string
 
 This is a classic problem that has been posed many times (including for the dreaded coding interview by employers). The problem is this:
 
-#### Given a string of characters, which are encoded in ascii, determine if the string contains all unique characters.
+    Given a string of characters, which are encoded in ascii, determine if the string contains all unique characters.
 
 
-There are many solutions in various languages, some of which are straightforward, but at the same time may be inefficient. Others may perform fairly well, but are rather incomplete (they don't cover all ascii characters that are easy to check). Perhaps the most vexing issue with many proposed solutions is that they do not handle cases when a string contains characters it does not expect. The web is filled with examples that are too simple and not exhaustive. Writing and using code like this has consequences. **Your goal** is to use what you learn about how ascii characters are encoded as bits, and therefor numbers. The problem can be solved using the numerical representation of all possible characters and some special unsigned long integers that you treat as 'bit vectors' (described further below).
+There are many solutions in various languages, some of which are straightforward, but at the same time may be inefficient. Others may perform fairly well, but are rather incomplete (they don't cover all ascii characters that are easy to check). Perhaps the most vexing issue with many proposed solutions is that they do not handle cases when a string contains characters it does not expect. The web is filled with examples that are too simple and not exhaustive. Writing and using code like this has consequences. **Your goal** is to use what you learn about how ascii characters are encoded as bits, and therefore numbers. The problem can be solved using the numerical representation of all possible characters and some special unsigned long integers that you treat as 'bit vectors' (described further below).
 
 The 128 fundamental ascii characters are found in the file provided called
 `ascii_table.txt`. This is purely a reference and is not designed to be part of
 your code solution.
-
 
 
 ## Starter code you are given
@@ -188,7 +187,7 @@ Your code should:
 - use asserts for your tests
 - follow the coding guidelines found on the course moodle page
 - work correctly on exhaustive test cases you have created and described
-- have all debug statements removed or commented
+- have all debug statements removed or commented.
   This means the only output should be from the error conditions, like this:
 
 ```  
