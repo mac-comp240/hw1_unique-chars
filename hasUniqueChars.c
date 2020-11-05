@@ -22,7 +22,7 @@
 void seeBits(unsigned long value, char *debug_text) {
   
   // string to represent binary value of variable value
-  char bin_str;
+  char *bin_str;
 
   bin_str = ulong_to_bin_str(value);
   printf("%s%s\n", debug_text, bin_str);
