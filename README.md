@@ -1,33 +1,42 @@
-# COMP 240 HW 1 Problem: Checking for no repeated characters in a string
+# Unique Characters in a String
 
-This is a classic problem that has been posed many times (including for the dreaded coding interview by employers). The problem is this:
+This is a classic problem that has been posed many times (including for the
+dreaded coding interview by employers). The problem is this:
 
     Given a string of characters, which are encoded in ascii, determine if the string contains all unique characters.
 
-
-There are many solutions in various languages, some of which are straightforward, but at the same time may be inefficient. Others may perform fairly well, but are rather incomplete (they don't cover all ascii characters that are easy to check). Perhaps the most vexing issue with many proposed solutions is that they do not handle cases when a string contains characters it does not expect. The web is filled with examples that are too simple and not exhaustive. Writing and using code like this has consequences. **Your goal** is to use what you learn about how ascii characters are encoded as bits, and therefore numbers. The problem can be solved using the numerical representation of all possible characters and some special unsigned long integers that you treat as 'bit vectors' (described further below).
+There are many solutions in various languages, some of which are
+straightforward, but at the same time may be inefficient. Others may perform
+fairly well, but are rather incomplete (they don't cover all ascii characters
+that are easy to check). Perhaps the most vexing issue with many proposed
+solutions is that they do not handle cases when a string contains characters it
+does not expect. The web is filled with examples that are too simple and not
+exhaustive. Writing and using code like this has consequences. **Your goal** is
+to use what you learn about how ascii characters are encoded as bits, and
+therefore numbers. The problem can be solved using the numerical representation
+of all possible characters and some special unsigned long integers that you
+treat as 'bit vectors' (described further below).
 
 The 128 fundamental ascii characters are found in the file provided called
 `ascii_table.txt`. This is purely a reference and is not designed to be part of
 your code solution.
 
-
-## Starter code you are given
+## Starter Code
 
 For this problem, you already have a `Makefile` that you can use to build your
-code as you work. The executable, called **hasUniqueChars**, is created by the
+code as you work. The executable, called `hasUniqueChars`, is created by the
 gcc compiler from 3 C code files.
 
-1. The `binary_convert.c`file and its binary_convert.h file are just as you had
-used in the Data Activities. As you have seen, it has functions that you can use
-to help you debug your code. You should not need to change this file. You should
-study it, however (some code is like what you will need to do).
+1. The `binary_convert.c`file and its `binary_convert.h` file are just as you
+   had used in the Data Activities. As you have seen, it has functions that you
+   can use to help you debug your code. You should not need to change this file.
+   You should study it, however (some code is like what you will need to do).
 
-2. The file where you should create the necessary function that will determine
-whether a given string has unique characters in it or not is called
-`hasUniqueChars.c`. The name of the function you will complete is also called
-*hasUniqueChars*. Note that you are also required to document this function by
-replacing the comment immediately above it in the code file.
+2. The file where you should create the function that will determine
+   whether a given string is comprised of unique characters is called
+   `hasUniqueChars.c`. The name of the function you will complete is also called
+   `hasUniqueChars`. Note that you are also required to document this function
+   by replacing the comment immediately above it in the code file.
 
     - In the code given to you in `hasUniqueChars.c`, the function declared as
       `void checkInvalid(char * inputStr)` is designed to fail and exit if it
@@ -35,32 +44,32 @@ replacing the comment immediately above it in the code file.
       column of the four columns of characters listed in ascii_table.txt. See
       the Notes below for more information about how some of these characters
       can be added to C strings by 'escaping' them using an *escape sequence*.
-      This will enable you to test whether *hasUniqueChars* will fail on a
+      This will enable you to test whether `hasUniqueChars` will fail on a
       string containing non-printing characters.
 
-3. The file that will contain all your exhaustive tests of your *hasUniqueChars*
-function is `test.c`. A few very basic tests are provided, but you must be much
-more careful and exhaustive, adding enough tests to be certain your function
-works for *all cases of character that you can create in a string*. Document
-this file at the top with a description and your name, and make sure that you
-describe your tests.
+3. The file that will contain all your exhaustive tests of your `hasUniqueChars`
+   function is `test.c`. A few very basic tests are provided, but you must be
+   much more careful and exhaustive, adding enough tests to be certain your
+   function works for *all cases of character that you can create in a string*.
+   Document this file at the top with a description and your name, and make sure
+   that you describe your tests.
 
-    - Until you have a correct version of *hasUniqueChars*, the initial code
+    - Until you have a correct version of `hasUniqueChars`, the initial code
       that builds will fail on one of the asserts.
 
-4. The Makefile is given for you.
+4. The Makefile is provided for you.
 
-## How it should run
+## Execution
 
-The graders should be able to do the following:
+The graders should be able to do the following to build and run your code:
 
     make clean
     make
     ./hasUniqueChars
 
-## What you must complete
+## Tasks to Complete
 
-### The function hasUniqueChars in hasUniqueChars.c
+### The function `hasUniqueChars` in `hasUniqueChars.c`
 
 You must complete the function defined like this:
 
@@ -123,7 +132,7 @@ Bit 0 of `checkBitsA_z` is on the right in the above depiction, and got set to 1
 for the A in the input string. Bit 63 of `checkBitsA_z` is on the left (not
 used, so will always stay 0).
 
-#### Important
+#### Note
 Any `char` variable, such as the one called `nextChar` in the code, can be
 treated like an integral number and used in mathematical expressions in C
 using + or -. Thus, you can easily determine the index into a bit vector for
@@ -165,15 +174,15 @@ is between 33 and 64, inclusive.
 You will not need all of these.
 
 2. You are also free to use any other operators that work on numerical
-variables, such as +, -, \*, <, >.
+   variables, such as +, -, \*, <, >.
 
 3. You may also use relational operators in if statements (!, &&, ||).
 
 4. You might be tempted to use any functions in the C library ctype.h, but this
-strategy will likely make your code more complicated. You should just treat
-nextChar as an integral value.
+   strategy will likely make your code more complicated. You should just treat
+   nextChar as an integral value.
 
-### Complete the test.c file
+### Complete the `test.c` file
 
 Complete enough tests to fully check your hasUniqueChars function. This means
 **complete and exhaustive** testing, using examples that should return true,
