@@ -80,7 +80,7 @@ bool hasUniqueChars(char * inputStr)
 This function should do the following:
 
 - Take any length of input string (variable inputStr), provided as an array of
-  chars. The characters in the array could be 'non printing', which are aded to
+  chars. The characters in the array could be 'non printing', which are added to
   a string using an 'escape' character sequence (you will need to lookup and
   investigate this- there is one reference at the bottom of this page).
 - Fail and exit the program if a non-printing character, including DEL (ascii
