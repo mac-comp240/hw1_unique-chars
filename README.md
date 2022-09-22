@@ -194,7 +194,7 @@ Use asserts for each test.
 Your code should:
 
 - use asserts for your tests
-- follow the coding guidelines found on the course moodle page
+- have descriptive comments for each function you are asked to write
 - work correctly on exhaustive test cases you have created and described
 - have all debug statements removed or commented.
   This means the only output should be from the error conditions, like this:
