@@ -1,16 +1,22 @@
 /*
- *
+ * TODO: Add an appropriate descriptive comment here
  */
+
 #include <stdio.h>    // printf
 #include <stdbool.h>  // to define a boolean type and true, false
 #include <string.h>   // strcpy  to copy a string
 #include <assert.h>
 
+
 // declaration of function from hasUniqueChars.c
 bool hasUniqueChars(char * inputStr);
 
+
+// TODO: Add descriptive comment here
 int main() {
-  //////////////////////  examples of declaring string constants
+
+  // ------------------------------------------------------------
+  // Examples of declaring string constants
   /* Example 1 */
   char string1[] = "A string declared as an array.\n";
 
@@ -25,28 +31,29 @@ int main() {
   // You can uncomment these to see how the strings were initialized above.
   // Then you can comment these out again once you see that the 
   // strings were created correctly
-//   printf ("%s", string1);
-//   printf ("%s", string2);
-//   printf ("%s", string3);
-  ////////////////////////////////////////////////////////////////
+  // printf ("%s", string1);
+  // printf ("%s", string2);
+  // printf ("%s", string3);
+
+  // -------------------------------------------------------------
+  // Thorough and exhaustive tests of hasUniqueChars()  
+  bool ok;    // holds the result of hasUniqueChars(); used in asserts
   
-  bool ok;    // gets result of hasUniqueChars(); used in assert
-  
-  // a test case that should return false because 
-  // characters are duplicated
+  // Test 1: a test case that should return false because characters are duplicated
   strcpy(string3, "This should fail (l and s and i and h)");
   ok = hasUniqueChars(string3);
   assert(!(ok));
   
-  // This should be true and not fail, but won't work until you
+  // Test 2: This should be true and not fail, but won't work until you
   // complete the hasUniqueChars() function
   strcpy(string3, "abcdefghij");
   ok = hasUniqueChars(string3);
   assert(ok);
   
-  // Your full set of tests goes here
-  
-  
+  // TODO: add your tests here
+
+
+
   // NOTE: if you add a \n to any tests, this should cause the
   //       exit failure given. Keep this test last so you can check 
   //       that others pass or fail as you expect them to.
@@ -55,7 +62,6 @@ int main() {
   // other examples that should fail that you can place in strings
   // are \0 or \t or \r
   // See problem description for more details about escape sequences
-  // (those with a \ in front).
   
   return 0;
 }

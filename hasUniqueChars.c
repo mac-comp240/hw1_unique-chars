@@ -1,7 +1,7 @@
 /*
  * hasUniqueChars.c
  * 
- * (replace this line with lines containing a description)
+ * TODO: replace this line with lines containing a description
  * 
  * Author: 
  */
@@ -14,6 +14,7 @@
                       // see https://en.wikibooks.org/wiki/C_Programming/stdbool.h
 
 #include "binary_convert.h"
+
 
 /*
  * This function is for debugging by printing out the value
@@ -30,9 +31,9 @@ void seeBits(unsigned long value, char *debug_text) {
   
 }
 
-///// Note that the following function is used below and
-///// is an example of how to loop through a string one
-///// character at a time.
+
+// TODO: Read this carefully to see how to loop over characters of a string
+// TODO: (Remove TODOs once you have completed the task they describe)
 /*
  * Given an input string of chars, check for any non-printing
  * characters and print an error and exit if the string has any.
@@ -52,8 +53,9 @@ void checkInvalid(char * inputStr) {
   }
 }
 
+
 /*
- * You write the description of what this function does and returns.
+ * TODO: Replace this code by a good description this function takes in, does and returns.
  * Include the error conditions that cause it to exit with failure.
  */
 bool hasUniqueChars(char * inputStr) {
@@ -69,48 +71,45 @@ bool hasUniqueChars(char * inputStr) {
 
   char nextChar;         // next character in string to check
 
-// see ascii_table.txt
-
-  ///////////////////////////////////////////////
-  // debug (remove or comment when satisfied of correctness)
+  // -------------------------------------------------------------
+  // This section contains code to display the initial values of checkBitsA_z
+  // and checkBitsexcl_amp, for debugging purposes. 
+  // It also illustrates how to use the seeBits function for debugging.
+  // Printed values should initially be all zeros
+  // TODO: remove or comment out this code when satisfied of function correctness
   
   char debug_str_A_z[128];
-//   strcpy(debug_str_A_z, "checkBitsA_z before: \n");
-//   seeBits(checkBitsA_z, debug_str_A_z);
+  strcpy(debug_str_A_z, "checkBitsA_z before: \n");
+  seeBits(checkBitsA_z, debug_str_A_z);
   
   char debug_str_excl_amp[128];
-//   strcpy(debug_str_excl_amp, "checkBitsexcl_amp before: \n");
-//   seeBits(checkBitsexcl_amp, debug_str_excl_amp);
-  
-  // initially, these strings should contain all zeros
-  
-  /////////////////////////// end debug
+  strcpy(debug_str_excl_amp, "checkBitsexcl_amp before: \n");
+  seeBits(checkBitsexcl_amp, debug_str_excl_amp);
+  // -------------------------------------------------------------
 
-  // you will want to declare more variables here
+  // TODO: Declare additional variables you need here
 
   
   for(i = 0; i < strlen(inputStr); i++) {
     nextChar = inputStr[i];
-    
-    ///////////// debug 
-    ///////////// move where useful
-    //////////////(remove when your function works)
-//     printf("nextchar int value: %d\n", nextChar);
-//     char char_str[2] = "\0";
-//     char_str[0] = nextChar;
-//     strcpy(debug_str_A_z, "nextchar: ");
-//     strcat(debug_str_A_z, char_str);
-//     strcat(debug_str_A_z,", checkBitsA_z: \n");
-//     seeBits(checkBitsA_z, debug_str_A_z);
-    // you can do something very similar for checkBitsexcl_amp
-    //////////////// end debug
+    // TODO: Add your code here to check nextChar, see if it is a duplicate, and update the checkBits variables
 
-    
-
+    // -------------------------------------------------------------
+    // Below this are examples of debugging print statements you could use
+    // Move/use as makes sense for you!
+    // Modify to work on checkBitsexcl_amp
+    // TODO: Comment out or remove when your function works correctly
+    printf("nextchar int value: %d\n", nextChar);
+    char char_str[2] = "\0";
+    char_str[0] = nextChar;
+    strcpy(debug_str_A_z, "nextchar: ");
+    strcat(debug_str_A_z, char_str);
+    strcat(debug_str_A_z,", checkBitsA_z: \n");
+    seeBits(checkBitsA_z, debug_str_A_z);
+    // ------------------------------------------------------------- 
   }
 
   // if through all the characters, then no duplicates found
   return true;
   
 }
-
