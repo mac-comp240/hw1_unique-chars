@@ -5,7 +5,7 @@
 This is a classic problem that has been posed many times (including for the
 dreaded coding interview by employers). The problem is this:
 
-    Given a string of characters, which are encoded in ascii, determine if the string contains all unique characters.
+**Given a string of characters, which are encoded in ascii, determine if the string contains all unique characters.**
 
 There are many solutions in various languages, some of which are
 straightforward, but at the same time may be inefficient. Others may perform
