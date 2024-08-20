@@ -12,7 +12,6 @@
 bool hasUniqueChars(char * inputStr);
 
 
-// TODO: Add descriptive comment here
 int main() {
 
   // ------------------------------------------------------------
