@@ -203,15 +203,16 @@ unused: 32 through 63. The mapping of should look like this:
 #### Tools you may use for the function `hasUniqueChars`
 
 - Use any of the following bitwise operators to make checks in the loop:
-
+```
     << >> & | ~ ^
+```
 
 You will not need all of these.
 
 - You are also free to use any other operators that work on numerical
-   variables, such as +, -, \*, <, >.
+   variables, such as `+`, `-`, `\*`, `<`, `>`.
 
-- You may also use relational operators in if statements (!, &&, ||).
+- You may also use relational operators in if statements (`!`, `&&`, `||`).
 
 - You might be tempted to use any functions in the C library ctype.h, but this
    strategy will likely make your code more complicated. You should just treat
