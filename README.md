@@ -79,7 +79,9 @@ The graders should be able to do the following to build and run your code *witho
 
 ## Tasks to Complete
 
-### Task 1: Modify `hasUniqueChars.c`
+### Task 1: Complete `hasUniqueChars.c`
+
+#### First step, adding good comments and other simple items
 
 The `hasUniqueChars.c` file has TODO comment that reinforce the instructions in 
 this section. Read and implement all TODO comments. Remember
@@ -88,7 +90,7 @@ that it is good style to **remove** TODO comments once you have completed them.
 Right away, modify the top-of-file comment, and the comment for `hasUniqueChars`
 and any other easy TODOs.
 
-### Task 2: Complete the function `hasUniqueChars` in `hasUniqueChars.c`
+#### Complete the function `hasUniqueChars` in `hasUniqueChars.c`
 
 ```
 bool hasUniqueChars(char * inputStr)
