@@ -41,7 +41,7 @@ Homework 0 for guidance on staging, committing, and pushing your code.
 - In `test.c` (16 pts):
     - Student name and description of file at the top of the file
     - Clean coding style (indentation, spacing, readability, good variable names, etc.)
-    - Every test in `main` has a comment that describes what it tests  (3 pts)
+    - Every test in `main` has a comment that describes what it tests
     - Includes thorough tests that use `assert`:
         - all printable characters
         - strings with and without duplicate characters
